@@ -68,11 +68,11 @@ public class CubeBehaviour : MonoBehaviour
             cube.velocity.x *= -1;
             if(dx < 0)
             {
-                transform.position = new Vector3(box.max.x + 0.5f, transform.position.y,transform.position.z);
+                transform.position = new Vector3(box.max.x + 0.6f, transform.position.y,transform.position.z);
             }
             else
             {
-                transform.position = new Vector3(box.min.x - 0.5f, transform.position.y,transform.position.z);
+                transform.position = new Vector3(box.min.x - 0.6f, transform.position.y,transform.position.z);
             }
         }
         else if (Mathf.Abs(dy) > Mathf.Abs(dx) &&  Mathf.Abs(dy) >  Mathf.Abs(dz)) // dy is the biggest
@@ -83,11 +83,11 @@ public class CubeBehaviour : MonoBehaviour
             cube.velocity.z *= -1;
             if(dz < 0)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y,box.max.z + 0.5f);
+                transform.position = new Vector3(transform.position.x, transform.position.y,box.max.z + 0.6f);
             }
             else
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y,box.min.z - 0.5f);
+                transform.position = new Vector3(transform.position.x, transform.position.y,box.min.z - 0.6f);
             }
         }
         

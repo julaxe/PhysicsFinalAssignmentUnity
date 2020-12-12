@@ -28,10 +28,18 @@ public class PlayerBehaviour : MonoBehaviour
             // delays firing
             if (Time.frameCount % fireRate == 0)
             {
-                var tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
-                tempBullet.GetComponent<BulletBehaviour>().direction = bulletSpawn.forward;
+                GameObject obj = ObjectPooling.current.getPooledObject();
+                if(obj == null) return;
 
-                tempBullet.transform.SetParent(bulletManager.gameObject.transform);
+                obj.transform.position = bulletSpawn.position;
+                obj.GetComponent<BulletBehaviour>().direction = bulletSpawn.forward;
+                obj.SetActive(true);
+
+
+                //var tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+                //tempBullet.GetComponent<BulletBehaviour>().direction = bulletSpawn.forward;
+
+                //tempBullet.transform.SetParent(bulletManager.gameObject.transform);
             }
 
         }

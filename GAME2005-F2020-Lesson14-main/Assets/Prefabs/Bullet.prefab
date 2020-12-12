@@ -119,6 +119,7 @@ MonoBehaviour:
   debug: 1
   contacts: []
   bulletBehaviour: {fileID: 0}
+  EnergyLostCoeficient: 0.1
   Radius: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

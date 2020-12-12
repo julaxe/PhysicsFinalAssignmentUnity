@@ -7,6 +7,6 @@ public class mainmenu : MonoBehaviour
 {
     public void PlayButton() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 }

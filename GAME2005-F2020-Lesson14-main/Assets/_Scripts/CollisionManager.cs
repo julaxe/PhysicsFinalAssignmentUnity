@@ -64,13 +64,21 @@ public class CollisionManager : MonoBehaviour
             {
                 if(CheckAABBSphereBox(actors[j], bullets[i]))
                 {
+                    if(actors[j].player != null)
+                    {
+                        break;
+                    }
 
                     if (actors[j].cube != null)
+                    {
                         bullets[i].CalculateMomentum(actors[j]);
+                    }
 
 
+                    bullets[i].LoseMomentum();
                     bullets[i].Bounce(actors[j]);
                     break;
+                    
                 }
             }
         }

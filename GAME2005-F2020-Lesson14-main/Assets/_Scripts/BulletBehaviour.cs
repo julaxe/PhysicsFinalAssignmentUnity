@@ -26,9 +26,20 @@ public class BulletBehaviour : MonoBehaviour
         
         _Move();
         _CheckBounds();
+        momentum = velocity* mass;
        
     }
 
+    private void OnEnable()
+    {
+        velocity = direction * speed;
+        momentum = velocity* mass;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
     private void _Move()
     {
         transform.position += velocity * Time.deltaTime;
@@ -38,7 +49,12 @@ public class BulletBehaviour : MonoBehaviour
     {
         if ((Vector3.Distance(transform.position, Vector3.zero) > range) || (momentum.magnitude < 0.1))
         {
-            Destroy(gameObject);
+            Disable();
         }
+    }
+
+    private void Disable()
+    {
+        gameObject.SetActive(false);
     }
 }
